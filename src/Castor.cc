@@ -14,7 +14,7 @@
 //
 // Original Author:  Hans Van Haevermaet
 //         Created:  Wed Jul  9 14:00:40 CEST 2008
-// $Id$
+// $Id: Castor.cc,v 1.1.2.1 2008/08/30 20:46:30 hvanhaev Exp $
 //
 //
 
@@ -49,6 +49,13 @@
 #include "RecoLocalCalo/Castor/interface/KtAlgorithm.h"
 #include "RecoLocalCalo/Castor/interface/Egamma.h"
 #include "RecoLocalCalo/Castor/interface/Tower.h"
+
+// SimTrack 
+#include "SimDataFormats/Track/interface/SimTrack.h"
+
+// PCaloHits
+#include "SimDataFormats/CaloHit/interface/PCaloHit.h"
+#include "SimDataFormats/CaloHit/interface/PCaloHitContainer.h"
 
 
 
@@ -157,12 +164,12 @@ Castor::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
    for (size_t i = 0; i < castorRecHits->size(); ++i) {
    	// get properties
    	const CastorRecHit & rh = (*castorRecHits)[i];
-	int section = rh.id().section();
+	//int section = rh.id().section();
 	int sector = rh.id().sector();
 	int module = rh.id().module();
-	double energy = rh.energy();
+	//double energy = rh.energy();
 	int zside = rh.id().zside();
-	cout << "CastorRecHit in section " << section << " and sector " << sector << " and module " << module << " with energy " << energy << "\n"; 
+	//cout << "CastorRecHit in section " << section << " and sector " << sector << " and module " << module << " with energy " << energy << "\n"; 
    	
 	// define CastorCell properties
 	double zCell;

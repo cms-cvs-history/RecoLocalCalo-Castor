@@ -13,7 +13,7 @@
 //
 // Original Author:  Hans Van Haevermaet
 //         Created:  Sat May 24 12:00:56 CET 2008
-// $Id$
+// $Id: Tower.cc,v 1.1.2.1 2008/08/30 20:46:32 hvanhaev Exp $
 //
 //
 
@@ -83,6 +83,7 @@ CastorTowerCollection Tower::runTowerProduction (const CastorCellCollection inpu
   
   // make towers of the arrays
   for (int k=0;k<16;k++) {
+  	if (castortowerarray[0][k] > 0.) {
   	TowerPoint temptowerposition(1.0,eta,castortowerarray[3][k]);
 	Point towerposition(temptowerposition);
 	double emtotRatio;
@@ -99,6 +100,7 @@ CastorTowerCollection Tower::runTowerProduction (const CastorCellCollection inpu
 	//AlgoId algo = fastsim;
 	CastorTower newtower(castortowerarray[0][k],towerposition,castortowerarray[1][k],castortowerarray[2][k],emtotRatio,0.3927,depth,castorusedcellsarray[k]);
 	towers.push_back(newtower);
+	}
   }
   
   

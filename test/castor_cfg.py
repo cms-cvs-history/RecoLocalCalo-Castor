@@ -4,10 +4,11 @@ process = cms.Process("CastorProducts")
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(20)
+    input = cms.untracked.int32(1000)
 )
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:digiout_test.root')
+    fileNames = 
+cms.untracked.vstring('file:digiout.root')
 )
 
 process.fromRecHits = cms.EDFilter("Castor",
@@ -21,7 +22,7 @@ process.fromRecHits = cms.EDFilter("Castor",
 
 process.MyOutputModule = cms.OutputModule("PoolOutputModule",
     outputCommands = cms.untracked.vstring('keep *_fromRecHits_*_*'),
-    fileName = cms.untracked.string('test_output.root')
+    fileName = cms.untracked.string('recooutput.root')
 )
 
 process.producer = cms.Path(process.fromRecHits)

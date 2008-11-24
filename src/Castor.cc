@@ -14,7 +14,7 @@
 //
 // Original Author:  Hans Van Haevermaet
 //         Created:  Wed Jul  9 14:00:40 CEST 2008
-// $Id: Castor.cc,v 1.1.2.1 2008/08/30 20:46:30 hvanhaev Exp $
+// $Id: Castor.cc,v 1.1.2.2 2008/09/05 14:16:13 hvanhaev Exp $
 //
 //
 
@@ -197,7 +197,7 @@ Castor::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	}
 	
 	// add conditions to select in eta sides
-	if (zside < 0) zCell = -1*zCell;
+	if (zside <= 0) zCell = -1*zCell;
 	
 	// store cell
 	CellPoint tempcellposition(1.0,zCell,phiCell);
